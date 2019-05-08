@@ -1,0 +1,14 @@
+Month		Average steps taken
+------------------------------------------
+January			5246.1
+February			4851.9
+March			5777.6
+April			5802.1
+May			4711.5
+June			4792.3
+July			5638.2
+August			5759.6
+September			6114.6
+October			5411.0
+November			4268.8
+December			5138.1

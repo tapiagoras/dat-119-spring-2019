@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<head>
+   <title>Lego IoT Vehicle</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .img_ccac{
+            background: #BE1D29;
+        }
+        .container{ 
+            width: 50%;
+            float: left;
+        }
+        .btn.btn-default {
+            background: blueviolet;
+            font-size: 30px;
+            font-weight: bold;
+        }
+        .btn {
+            background: #BE1D29;
+            font-size: 30px;
+            font-weight: bold;
+        }
+        .row {
+            margin-right: 40px;
+            margin-left: 10px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+   <h1 class="d-block">Lego IoT Vehicle</h1> by Fernando Tapia
+    <div class ="img_ccac">
+     <img src="https://s3.amazonaws.com/libapps/customers/207/images/smallccaclogocrop.jpg" class="rounded mx-auto d-block" alt="CCAC"> 
+    </div>
+    <div class="container"> 
+        <div class="row"> 
+   {% for pin in pins %}
+   <div  class="pins col-sm-4">
+    <p>{{ pins[pin].name }}
+   {% if pins[pin].state == true %}
+      is currently <strong>on</strong></p><div class="row"><div class="col-md-2">
+      <a href="/{{pin}}/off" class="btn btn-default" role="button">OFF</a></div></div>
+   {% else %}
+      is currently <strong>off</strong></p><div class="row"><div class="col-md-2">
+      <a href="/{{pin}}/on" class="btn btn-primary" role="button">ON</a></div></div>
+   {% endif %}
+     </div>
+   {% endfor %}
+   </div>
+    </div>
+ <div id = "video">
+     <img src="{{ url_for('calc') }}">
+</div>
+</body>
+</html>
